@@ -17,10 +17,14 @@ public abstract class Program {
             "Jane",
             Gender.Female,
             30,
-            new FamilyMember[] { mother, father });
+            new FamilyMember[] { father });
+        mother.Spouse = father;
+        father.Spouse = mother;
 
         // Print the family tree
         adult.Print();
+        Console.WriteLine();
+        mother.PrintSpouse();
 
         Console.ReadLine();
     }

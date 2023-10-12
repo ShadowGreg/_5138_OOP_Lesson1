@@ -7,6 +7,8 @@ public class AdultFamilyMember: FamilyMember {
     }
 
     public FamilyMember[] Children { get; set; }
+    public FamilyMember Spouse { get; set; }
+
 
     public override void Print(int indent = 1) {
         base.Print(indent);
@@ -19,5 +21,10 @@ public class AdultFamilyMember: FamilyMember {
                 child.Print(indent * 2);
             }
         }
+    }
+
+    public void PrintSpouse(int indent = 1) {
+        base.Print(indent);
+        Spouse.Print(indent);
     }
 }
