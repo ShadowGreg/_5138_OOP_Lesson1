@@ -1,0 +1,23 @@
+﻿namespace _5138_OOP_Lesson1;
+
+public class AdultFamilyMember: FamilyMember {
+    public AdultFamilyMember(FamilyMember mother, FamilyMember father, string name, Gender sex, int age,
+        FamilyMember[] children = null): base(mother, father, name, sex, age) {
+        Children = children;
+    }
+
+    public FamilyMember[] Children { get; set; }
+
+    public override void Print(int indent = 1) {
+        base.Print(indent);
+
+        foreach (var child in Children) {
+            if (child is AdultFamilyMember adultChild) {
+                adultChild.Print(indent * 2);
+            }
+            else {
+                child.Print(indent * 2);
+            }
+        }
+    }
+}
